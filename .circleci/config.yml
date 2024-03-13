@@ -22,7 +22,7 @@ jobs:
      steps:
         - checkout
         - run: python Test.py
-   workflows:
+workflows:
           build_and_test:
             jobs:
              -build 
