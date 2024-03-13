@@ -4,27 +4,23 @@
 # For a detailed guide to building and testing with Python, read the docs:
 # https://circleci.com/docs/language-python/ for more details
 version: 2.1
-
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/jobs-steps/#jobs-overview & https://circleci.com/docs/configuration-reference/#jobs
+#Define the jobs we want to run for this projectjobs:
 jobs:
-   build:
-     docker:
-         - image: python
-     steps:
-         -checkout
-         -run python Main1.py
-   test:
-     docker:
-         -image: python
-
-     steps:
-        - checkout
-        - run: python Test.py
+	build:
+		docker:
+			- image: python
+		steps:
+			- checkout
+			- run: python Main1.py
+	test:
+		docker:
+			- image: python
+		steps:
+			- checkout
+			- run: python Test.py
+# Orchestrate our job run sequence
 workflows:
-  build_and_test:
-      jobs:
-         -build 
-         - test
-      
+	build_and_test:
+		jobs:
+			- build
+			- test
