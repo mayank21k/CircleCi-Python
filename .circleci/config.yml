@@ -23,8 +23,8 @@ jobs:
         - checkout
         - run: python Test.py
 workflows:
-      build_and_test:
-          jobs:
-             -build 
-            - test
+  build_and_test:
+      jobs:
+         -build 
+         - test
       
